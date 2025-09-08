@@ -1,3 +1,0 @@
-class Git { 
-    levelOfUnderstanding='average'
-}
