@@ -84,6 +84,8 @@ class LinkedInHomePage {
   }
 }
 
+
+
 let linkInPage = new LinkedInHomePage(); 
 console.log(linkInPage.expectedHomePageTitle);//LinkedIn - The World's Largest Professional Network
 console.log(linkInPage.maxConnectionsFreeAccount);//30000
