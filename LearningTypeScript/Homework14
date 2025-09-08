@@ -1,0 +1,93 @@
+// Start with an empty array called testQueue
+// Add 5 test cases using push(): "Login Test", "Search Test", "Cart Test", "Payment Test", "Logout Test"
+// Print the queue after adding all tests and the current queue length
+// Insert "Security Test" at position 1 using splice()
+// Replace the test at position 3 with "Updated Cart Test" using splice()
+// Process (remove) the last 2 tests using pop() and print what was removed
+// Add "Priority Test" using push() and "Emergency Fix Test" at the beginning using splice()
+//Print the final queue and its length
+let testQueue: string[] = [];
+testQueue.push("Login Test", "Search Test", "Cart Test", "Payment Test", "Logout Test");
+console.log(testQueue);//"Login Test", "Search Test", "Cart Test", "Payment Test", "Logout Test"
+console.log(testQueue.length);//5
+let newTest:string []= testQueue.splice(0, 1, "Security Test");
+let replacedTest = testQueue.splice(2, 1, "Updated Cart Test");
+let removedTest1 =testQueue.pop();
+let removedTest2 = testQueue.pop();
+console.log("Removed tests:", removedTest1, removedTest2);//Logout Test Payment Test
+testQueue.push("Priority Test");
+console.log(testQueue);//'Security Test','Search Test','Updated Cart Test','Priority Test'
+testQueue.splice(0, 0, "Emergency Fix Test");
+console.log('Tests we got : ' + testQueue);//Tests we got : Emergency Fix Test,Security Test,Search Test,Updated Cart Test,Priority Test
+console.log(testQueue.length);//5
+///////////////////////////////////////////////////////////////////////
+// Create an array userTypes with: ["admin", "tester", "developer"]
+// Create an array activeUsers with: ["alice", "bob", "charlie"]
+// Check if userTypes includes "admin" - if yes, insert "super-admin" at position 1 using splice()
+// Check if activeUsers includes "bob" - if yes, replace "charlie" with "bob-backup" using splice()
+// Check if userTypes includes "manager" - if no, add it at the beginning using splice()
+// Remove the last userType using pop() and add it to activeUsers using push()
+// Print both arrays and their lengths after each operation
+// Print how many total users and user types we have
+
+
+// Task: Create connections: ["mysql-prod", "redis-cache", "mongo-dev"]
+// and activeConnections: empty. Check the first connection (index 0) -
+// if it includes "mysql", move it to activeConnections and add "SECURED-"
+// prefix. 
+// Check the second connection (index 1) - if it includes "redis",
+// replace it with "redis-cluster". Add "postgres-test" to connections.
+// Insert "monitor-connection" at the beginning of activeConnections.
+// Remove the last connection from activeConnections and add "BACKUP-"
+// prefix to it. Calculate total connections.
+
+let connections: string[] = ["mysql-prod", "redis-cache", "mongo-dev"];
+let activeConnections: string[] = [];
+if (connections[0].includes("mysql")) { 
+    let removedCon =connections.splice(0,1)[0];
+    activeConnections.splice(0, 0, "SECURED-" + removedCon);
+}
+if (connections[0].includes("redis")) { 
+    connections.splice (0,1,"redis-cluster")
+}
+connections.push("postgres-test"); 
+activeConnections.splice(0, 0, "monitor-connection");
+let newCon = "BACKUP-" + activeConnections.pop();
+activeConnections.push(newCon);
+console.log(connections);
+console.log(activeConnections);
+
+// / Create rawData: ["valid-email", "invalid-phone", "valid-address", "corrupt-data"]
+// and cleanData: empty. For each item in rawData, check if it includes "valid" -
+// if yes, move it to cleanData and replace "valid" with "verified". Insert "data-header"
+//  at the beginning of cleanData. Remove the last item from rawData and add "processed-"
+// prefix before adding to cleanData. Print the processing results.
+let rawData = ["valid-email", "invalid-phone", "valid-address", "corrupt-data"];
+let cleanData: string[] = [];
+// valid-email
+if (rawData[0].includes("valid")) {
+  cleanData.push(rawData.splice(0, 1)[0].replace("valid", "verified"));
+}
+// invalid-phone
+if (rawData[0].includes("valid")) {
+  // this will not be true so it will not remove
+  cleanData.push(rawData.splice(0, 1)[0].replace("valid", "verified"));
+}
+//"valid-address"
+if (rawData[1].includes("valid")) {
+  cleanData.push(rawData.splice(1, 1)[0].replace("valid", "verified"));
+}
+// corrupt-data
+if (rawData[1].includes("valid")) {
+  // this will not be true so it will not remove
+  cleanData.push(rawData.splice(1, 1)[0].replace("valid", "verified"));
+}
+///////////////////////////////////////////////////////////////////////////////////////
+// "The quick brown fox"
+// Your task: Use split() to create an array of words
+// let sentence = "The quick brown fox";
+// let words = sentence.split("___");  // Replace "___" with something right
+// console.log(words);
+// I want to have this -> ['The','quick','brown','fox']
+let mySentence = "The quick brown fox";
+let mywords = mySentence;

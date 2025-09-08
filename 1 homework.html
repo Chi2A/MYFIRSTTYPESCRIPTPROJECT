@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 Homework - Environment Setup & First Steps</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #333;
+        }
+        
+        h1 {
+            color: #2c5aa0;
+            border-bottom: 3px solid #2c5aa0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #34495e;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #e74c3c;
+            margin-top: 25px;
+        }
+        
+        .question-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .answer-section {
+            background-color: #ffffff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #3498db;
+            background: transparent;
+            padding: 8px 5px;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .answer-input:focus {
+            border-bottom-color: #e74c3c;
+            background-color: #f8f9fa;
+        }
+        
+        .answer-textarea {
+            width: 100%;
+            min-height: 60px;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .answer-textarea:focus {
+            border-color: #e74c3c;
+            background-color: #f8f9fa;
+        }
+        
+        .code-textarea {
+            width: 100%;
+            min-height: 120px;
+            background-color: #f4f4f4;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .code-textarea:focus {
+            border-color: #3498db;
+            background-color: #ffffff;
+        }
+        
+        .help-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .submission-info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .checklist {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .checklist ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .checklist li {
+            margin: 8px 0;
+            padding: 5px 0;
+        }
+        
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+        }
+        
+        .student-info {
+            border: 2px solid #6c757d;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .points {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .time-estimate {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .save-buttons {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #e8f5e8;
+            border-radius: 8px;
+            border: 2px solid #28a745;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+
+        
+
+
+        @media print {
+            body {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+            .question-box, .answer-section {
+                break-inside: avoid;
+            }
+            .save-buttons {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📚 Homework: Day 1 - Environment Setup & First Steps</h1>
+    
+    <div class="header-info">
+        <div><strong>Due:</strong> Before Tuesday's Class</div>
+
+    </div>
+
+    <div class="question-box">
+        <h2>📝 Instructions</h2>
+        <p>Answer all questions clearly and completely. For coding questions, write the complete TypeScript code. For conceptual questions, explain your reasoning.</p>
+        <p><strong>📱 Interactive Features:</strong> Type your answers directly into the form fields below. Use the "Export to PDF" button when finished!</p>
+    </div>
+
+    <div class="save-buttons">
+        <h3>📄 Export Your Homework</h3>
+        <button class="btn btn-primary" onclick="exportToPDF()">📄 Export to PDF</button>
+        <p style="margin-top: 10px; font-size: 14px; color: #666;">Click the button above to save your homework as a PDF file for submission.</p>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 1: Development Environment <span class="points">(20 points)</span></h2>
+        <p><strong>Scenario:</strong> A new team member needs to set up their TypeScript development environment.</p>
+        <p><strong>Question:</strong> List the three essential tools needed for TypeScript development and explain what each one does. Then write the command to run a TypeScript file called <code>my-first-program.ts</code> that's located in your current folder.</p>
+        
+        <div class="answer-section">
+            <h3>Your Answer:</h3>
+            <p><strong>Tool 1:</strong> <input type="text" class="answer-input" id="q1_tool1" placeholder="Enter the first tool name"></p>
+            <p><strong>Purpose:</strong> <input type="text" class="answer-input" id="q1_purpose1" placeholder="Explain what this tool does"></p>
+            <br>
+            <p><strong>Tool 2:</strong> <input type="text" class="answer-input" id="q1_tool2" placeholder="Enter the second tool name"></p>
+            <p><strong>Purpose:</strong> <input type="text" class="answer-input" id="q1_purpose2" placeholder="Explain what this tool does"></p>
+            <br>
+            <p><strong>Tool 3:</strong> <input type="text" class="answer-input" id="q1_tool3" placeholder="Enter the third tool name"></p>
+            <p><strong>Purpose:</strong> <input type="text" class="answer-input" id="q1_purpose3" placeholder="Explain what this tool does"></p>
+            <br>
+            <p><strong>Command to run the file:</strong> <input type="text" class="answer-input" id="q1_command" placeholder="Enter the command to run my-first-program.ts"></p>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 2: npm vs npx <span class="points">(20 points)</span></h2>
+        <p><strong>Scenario:</strong> You're explaining to a colleague the difference between npm and npx.</p>
+        <p><strong>Question:</strong> Explain the key difference between npm and npx, and provide two specific examples of when you would use each one. Use the analogy we discussed in class.</p>
+        
+        <div class="answer-section">
+            <h3>Your Answer:</h3>
+            <p><strong>Key Difference:</strong></p>
+            <textarea class="answer-textarea" id="q2_difference" placeholder="Explain the key difference between npm and npx..."></textarea>
+            <br>
+            <p><strong>npm Example 1:</strong> <input type="text" class="answer-input" id="q2_npm1" placeholder="When would you use npm?"></p>
+            <p><strong>npm Example 2:</strong> <input type="text" class="answer-input" id="q2_npm2" placeholder="Another npm use case..."></p>
+            <br>
+            <p><strong>npx Example 1:</strong> <input type="text" class="answer-input" id="q2_npx1" placeholder="When would you use npx?"></p>
+            <p><strong>npx Example 2:</strong> <input type="text" class="answer-input" id="q2_npx2" placeholder="Another npx use case..."></p>
+            <br>
+            <p><strong>The Analogy:</strong></p>
+            <textarea class="answer-textarea" id="q2_analogy" placeholder="Explain the analogy we discussed in class..."></textarea>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 3: Naming Conventions <span class="points">(20 points)</span></h2>
+        <p><strong>Scenario:</strong> You're creating a new project for testing an e-commerce website.</p>
+        <p><strong>Question:</strong> Create three different project names using the naming conventions we learned (CamelCase, snake_case, and kebab-case). Then explain which naming convention you prefer and why.</p>
+        
+        <div class="answer-section">
+            <h3>Your Answer:</h3>
+            <p><strong>CamelCase example:</strong> <input type="text" class="answer-input" id="q3_camel" placeholder="e.g., ECommerceTestingProject"></p>
+            <p><strong>snake_case example:</strong> <input type="text" class="answer-input" id="q3_snake" placeholder="e.g., e_commerce_testing_project"></p>
+            <p><strong>kebab-case example:</strong> <input type="text" class="answer-input" id="q3_kebab" placeholder="e.g., e-commerce-testing-project"></p>
+            <br>
+            <p><strong>My preference:</strong> <input type="text" class="answer-input" id="q3_preference" placeholder="Which naming convention do you prefer?"></p>
+            <p><strong>Reason:</strong></p>
+            <textarea class="answer-textarea" id="q3_reason" placeholder="Explain why you prefer this naming convention..."></textarea>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 4: Running TypeScript Code <span class="points">(25 points)</span></h2>
+        <p><strong>Scenario:</strong> You have a TypeScript file called "hello.ts" in your current folder that you want to run.</p>
+        <p><strong>Question:</strong> Write the command to run this TypeScript file, and explain what each part of the command does.</p>
+        
+        <div class="answer-section">
+            <h3>Your Answer:</h3>
+            <p><strong>Command to run hello.ts:</strong> <input type="text" class="answer-input" id="q4_command" placeholder="Enter the complete command"></p>
+            <br>
+            <p><strong>Explanation of each part:</strong></p>
+            <p><strong>First part:</strong> <input type="text" class="answer-input" id="q4_part1" placeholder="What does the first part do?"></p>
+            <p><strong>Second part:</strong> <input type="text" class="answer-input" id="q4_part2" placeholder="What does the second part do?"></p>
+            <p><strong>Third part:</strong> <input type="text" class="answer-input" id="q4_part3" placeholder="What does the third part do?"></p>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 5: Terminal Commands <span class="points">(15 points)</span></h2>
+        <p><strong>Scenario:</strong> You need to verify your development environment is working correctly.</p>
+        <p><strong>Question:</strong> List the three commands you would run to verify that Node.js, npm, and npx are all properly installed. Then explain what each command should display if everything is working correctly.</p>
+        
+        <div class="answer-section">
+            <h3>Your Answer:</h3>
+            <p><strong>Command 1:</strong> <input type="text" class="answer-input" id="q5_cmd1" placeholder="Command to check Node.js version"></p>
+            <p><strong>Expected output:</strong> <input type="text" class="answer-input" id="q5_out1" placeholder="What should this command display?"></p>
+            <br>
+            <p><strong>Command 2:</strong> <input type="text" class="answer-input" id="q5_cmd2" placeholder="Command to check npm version"></p>
+            <p><strong>Expected output:</strong> <input type="text" class="answer-input" id="q5_out2" placeholder="What should this command display?"></p>
+            <br>
+            <p><strong>Command 3:</strong> <input type="text" class="answer-input" id="q5_cmd3" placeholder="Command to check npx version"></p>
+            <p><strong>Expected output:</strong> <input type="text" class="answer-input" id="q5_out3" placeholder="What should this command display?"></p>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>🌟 Bonus Question: QA Test Automation Engineer Role <span class="points">(10 points)</span></h2>
+        <p><strong>Scenario:</strong> A friend asks you about your career path and what a QA Test Automation Engineer actually does.</p>
+        <p><strong>Question:</strong> Based on what we discussed in class about career opportunities and salary ranges, explain what a QA Test Automation Engineer does and why it's an attractive career choice.</p>
+        
+        <div class="answer-section">
+            <h3>Your Answer:</h3>
+            <p><strong>What does a QA Test Automation Engineer do?</strong></p>
+            <textarea class="answer-textarea" id="bonus_qa_role" placeholder="Describe the main responsibilities and tasks of a QA Test Automation Engineer..."></textarea>
+            <br>
+            <p><strong>Why is this role important in a job environment?</strong></p>
+            <textarea class="answer-textarea" id="bonus_qa_benefits" placeholder="Explain the importance and value of QA Test Automation Engineers in the workplace..."></textarea>
+        </div>
+    </div>
+
+    <div class="checklist">
+        <h2>✅ Submission Checklist</h2>
+        <p>Before submitting, check that you have:</p>
+        <ul>
+            <li><input type="checkbox"> Answered all 5 main questions completely</li>
+            <li><input type="checkbox"> Provided working TypeScript code for coding questions</li>
+            <li><input type="checkbox"> Explained your reasoning for conceptual questions</li>
+            <li><input type="checkbox"> Attempted the bonus question (optional but recommended)</li>
+            <li><input type="checkbox"> Used proper naming conventions in your examples</li>
+            <li><input type="checkbox"> Tested your code if possible</li>
+        </ul>
+    </div>
+
+    <div class="save-buttons">
+        <h3>📄 Export Your Homework</h3>
+        <button class="btn btn-primary" onclick="exportToPDF()">📄 Export to PDF</button>
+        <p style="margin-top: 10px; font-size: 14px; color: #666;">Click the button above to save your homework as a PDF file for submission.</p>
+    </div>
+
+    <div class="submission-info">
+        <h2>📤 How to Submit</h2>
+        <p><strong>Fill out your answers in this HTML file, export to PDF, and send the PDF file to Salih Aydin</strong></p>
+        <p style="font-size: 14px; color: #666; margin-top: 10px;">💡 Tip: Use the "Export to PDF" button above to generate your submission file.</p>
+    </div>
+
+    <div class="help-section">
+        <h2>🆘 Need Help?</h2>
+        
+        <h3>Environment Setup:</h3>
+        <div class="code-block">
+# Check versions
+node -v
+npm --version
+npx --version
+
+# Create project
+npm init -y
+
+# Run TypeScript
+npx tsx filename.ts
+        </div>
+
+        <h3>Naming Conventions:</h3>
+        <ul>
+            <li><strong>CamelCase:</strong> <code>MyFirstProject</code> (uppercase start, no spaces)</li>
+            <li><strong>snake_case:</strong> <code>my_first_project</code> (underscores)</li>
+            <li><strong>kebab-case:</strong> <code>my-first-project</code> (hyphens)</li>
+        </ul>
+
+        <h3>Common Mistakes to Avoid:</h3>
+        <ul>
+            <li>Forgetting to save files before running</li>
+            <li>Using spaces in project names</li>
+            <li>Not checking if tools are installed</li>
+            <li>Forgetting file extensions when running</li>
+        </ul>
+        
+        <p><strong>Remember:</strong> Take your time and think through each question step by step!</p>
+    </div>
+
+    <div class="student-info">
+        <p><strong>Student Name:</strong> <input type="text" class="answer-input" id="student_name" placeholder="Enter your full name"></p>
+        <p><strong>Date:</strong> <input type="date" class="answer-input" id="student_date"></p>
+    </div>
+
+    <!-- jsPDF library for direct PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script>
+        // Export to PDF function - direct download
+        async function exportToPDF() {
+            try {
+                // Hide export buttons temporarily
+                const saveButtons = document.querySelectorAll('.save-buttons');
+                saveButtons.forEach(button => button.style.display = 'none');
+                
+                // Get student name for filename
+                const studentName = document.getElementById('student_name').value || 'Student';
+                const cleanName = studentName.replace(/[^a-zA-Z0-9]/g, '_');
+                const filename = `Day1_Homework_${cleanName}.pdf`;
+                
+                // Create PDF using html2canvas + jsPDF
+                const element = document.body;
+                const canvas = await html2canvas(element, {
+                    scale: 1.5,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff'
+                });
+                
+                const imgData = canvas.toDataURL('image/png');
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                
+                const imgWidth = 210; // A4 width in mm
+                const pageHeight = 295; // A4 height in mm
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                let heightLeft = imgHeight;
+                
+                let position = 0;
+                
+                // Add first page
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+                
+                // Add additional pages if needed
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+                
+                // Download the PDF
+                pdf.save(filename);
+                
+                // Show buttons again
+                saveButtons.forEach(button => button.style.display = 'block');
+                
+                alert('✅ PDF exported successfully! Check your Downloads folder.');
+                
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('❌ Error generating PDF. Please try again.');
+                
+                // Show buttons again even if error
+                const saveButtons = document.querySelectorAll('.save-buttons');
+                saveButtons.forEach(button => button.style.display = 'block');
+            }
+        }
+        
+        // Set current date
+        document.getElementById('student_date').value = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>

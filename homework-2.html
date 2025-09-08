@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 Homework - Basic Data Types Practice</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
+        
+        .content-wrapper {
+            background: #edf2f7;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            margin: 20px 0;
+        }
+
+        h1 {
+            color: #2d3748;
+            border-bottom: 3px solid #718096;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.2em;
+            font-weight: 300;
+        }
+        
+        h2 {
+            color: #2d3748;
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            padding: 15px 20px;
+            border-left: 4px solid #718096;
+            margin-top: 30px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        h3 {
+            color: #4a5568;
+            margin-top: 25px;
+            font-weight: 500;
+        }
+        
+        .question-box {
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            border: 1px solid #cbd5e0;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .answer-section {
+            background-color: #ffffff;
+            border: 2px solid #a0aec0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #a0aec0;
+            background: transparent;
+            padding: 8px 5px;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.3s;
+            color: #2d3748;
+        }
+        
+        .answer-input:focus {
+            border-bottom-color: #718096;
+            background-color: #edf2f7;
+        }
+        
+        .answer-textarea {
+            width: 100%;
+            min-height: 60px;
+            border: 2px solid #a0aec0;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+            background-color: #ffffff;
+            color: #2d3748;
+        }
+        
+        .answer-textarea:focus {
+            border-color: #718096;
+            background-color: #edf2f7;
+        }
+        
+        .code-textarea {
+            width: 100%;
+            min-height: 120px;
+            background-color: #edf2f7;
+            border: 2px solid #cbd5e0;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+            color: #2d3748;
+        }
+        
+        .code-textarea:focus {
+            border-color: #718096;
+            background-color: #ffffff;
+        }
+        
+        .help-section {
+            background-color: #edf2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .submission-info {
+            background-color: #e2e8f0;
+            border: 1px solid #cbd5e0;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2d3748;
+        }
+        
+        .checklist {
+            background-color: #edf2f7;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .checklist ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .checklist li {
+            margin: 8px 0;
+            padding: 5px 0;
+        }
+        
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+        }
+        
+        .student-info {
+            border: 2px solid #6c757d;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .points {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .time-estimate {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .auto-save-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #28a745;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 1000;
+            opacity: 0.9;
+            transition: all 0.3s;
+        }
+        
+        .auto-save-status.saving {
+            background-color: #ffc107;
+            color: #333;
+        }
+        
+        .auto-save-status.error {
+            background-color: #dc3545;
+        }
+
+        .save-buttons {
+            text-align: center;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            border-radius: 15px;
+            border: 2px solid #a0aec0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            transform: translateY(-2px);
+        }
+        
+        .type-hint {
+            background-color: #edf2f7;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #4a5568;
+            border-left: 4px solid #a0aec0;
+        }
+
+        @media print {
+            body {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+            .question-box, .answer-section {
+                break-inside: avoid;
+            }
+            .save-buttons {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auto-save-status" id="autoSaveStatus">✓ Auto-saved</div>
+    
+    <div class="content-wrapper">
+        <h1>📚 Homework: Day 2 - Basic Data Types Practice</h1>
+    
+    <div class="header-info">
+        <div><strong>Due:</strong> Before Wednesday's Class</div>
+        <div><strong>Focus:</strong> String, Number, Boolean Variables</div>
+    </div>
+
+    <div class="question-box">
+        <h2>📝 Instructions</h2>
+        <p>Today you learned about the three basic data types in TypeScript: <strong>string</strong>, <strong>number</strong>, and <strong>boolean</strong>. This homework will help you practice creating variables and using them with console.log, just like we did in class.</p>
+        <p><strong>📱 Interactive Features:</strong> Type your answers directly into the form fields below. Your work is automatically saved as you type!</p>
+        <p><strong>⭐ Time Estimate:</strong> <span class="time-estimate">30-45 minutes</span></p>
+    </div>
+
+    <div class="save-buttons">
+        <h3>💾 Save Your Progress</h3>
+        <button class="btn btn-primary" onclick="saveProgress()">💾 Save Progress to Browser</button>
+        <button class="btn btn-primary" onclick="exportToPDF()">📄 Export to PDF</button>
+        <p style="margin-top: 10px; font-size: 14px; color: #666;">Your work is automatically saved as you type. Use "Save Progress" to manually save, and "Export to PDF" for final submission.</p>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 1: Creating String Variables <span class="points">(20 points)</span></h2>
+        <p><strong>Task:</strong> Create string variables and print them out using console.log, just like we practiced in class.</p>
+        
+        <div class="type-hint">
+            <strong>💡 Remember:</strong> Use <code>let variableName: string = 'your text here'</code> and single or double quotes consistently.
+        </div>
+        
+        <div class="answer-section">
+            <h3>Instructions for your code:</h3>
+            <p><strong>Create the following string variables:</strong></p>
+            <ul>
+                <li>Your favorite food (give it a good, descriptive variable name)</li>
+                <li>Your favorite color (use proper camelCase naming)</li>
+                <li>A city you want to visit (make the variable name meaningful)</li>
+            </ul>
+            <p><strong>Then use console.log to print them out nicely, like:</strong><br>
+            <code>console.log('My favorite food is ' + yourVariableName)</code></p>
+            <p><strong>Remember:</strong> Use good naming practices - camelCase, descriptive, and meaningful variable names!</p>
+            
+            <h3>Your Code:</h3>
+            <textarea class="code-textarea" id="q1_code" placeholder="// Write your TypeScript code here
+// Remember to use good variable names!"></textarea>
+            
+            <h3>What will your console.log print?</h3>
+            <textarea class="answer-textarea" id="q1_output" placeholder="Write what you expect to see when you run your code..."></textarea>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 2: Working with Numbers <span class="points">(20 points)</span></h2>
+        <p><strong>Task:</strong> Create number variables and do simple math operations, just like we practiced in class.</p>
+        
+        <div class="type-hint">
+            <strong>💡 Remember:</strong> Numbers don't use quotes! Use <code>let variableName: number = 25</code>
+        </div>
+        
+        <div class="answer-section">
+            <h3>Instructions for your code:</h3>
+            <p><strong>Create the following number variables (use good variable names):</strong></p>
+            <ul>
+                <li>Your age</li>
+                <li>Number of pets you have</li>
+                <li>Your favorite number</li>
+            </ul>
+            <p><strong>Then create two more numbers and add them together:</strong></p>
+            <ul>
+                <li>Create a variable with value 15</li>
+                <li>Create another variable with value 27</li>
+                <li>Create a sum variable that adds them together</li>
+                <li>Use console.log to print the result nicely</li>
+            </ul>
+            <p><strong>Remember:</strong> Use descriptive variable names in camelCase!</p>
+            
+            <h3>Your Code:</h3>
+            <textarea class="code-textarea" id="q2_code" placeholder="// Write your TypeScript code here
+// Remember: numbers don't use quotes!"></textarea>
+            
+            <h3>What's the difference?</h3>
+            <p><strong>What does 2 + 2 equal?</strong> <input type="text" class="answer-input" id="q2_math" placeholder="Enter the result"></p>
+            <p><strong>What does '2' + '2' equal?</strong> <input type="text" class="answer-input" id="q2_string" placeholder="Enter the result"></p>
+            <p><strong>Why are they different?</strong> <textarea class="answer-textarea" id="q2_explanation" placeholder="Explain why these give different results..."></textarea></p>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 3: Understanding Booleans <span class="points">(20 points)</span></h2>
+        <p><strong>Task:</strong> Practice with boolean variables (true/false), just like we learned in class.</p>
+        
+        <div class="type-hint">
+            <strong>💡 Remember:</strong> Booleans can only be <code>true</code> or <code>false</code> (no quotes!)
+        </div>
+        
+        <div class="answer-section">
+            <h3>Instructions for your code:</h3>
+            <p><strong>Create the following boolean variables (use good variable names):</strong></p>
+            <ul>
+                <li>Do you like pizza? (set to true or false)</li>
+                <li>Is it raining today? (set to true or false)</li>
+                <li>Are you a student? (set to true or false)</li>
+            </ul>
+            <p><strong>Then use console.log to print them nicely, like:</strong><br>
+            <code>console.log('I like pizza: ' + yourVariableName)</code></p>
+            <p><strong>Remember:</strong> Use meaningful variable names in camelCase!</p>
+            
+            <h3>Your Code:</h3>
+            <textarea class="code-textarea" id="q3_code" placeholder="// Write your TypeScript code here
+// Remember: true and false don't use quotes!"></textarea>
+            
+            <h3>True or False Quiz:</h3>
+            <p><strong>Is <code>false</code> the same as <code>'false'</code>?</strong></p>
+            <select class="answer-input" id="q3_quiz1" style="width: 300px; padding: 8px; margin: 10px 0;">
+                <option value="">Choose your answer...</option>
+                <option value="same">True - they are the same</option>
+                <option value="different">False - they are different</option>
+            </select>
+            
+            <p><strong>Explain your answer:</strong></p>
+            <textarea class="answer-textarea" id="q3_explanation" placeholder="Why did you choose that answer? Explain the difference between a boolean and a string..."></textarea>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 4: Practicing All Three Types Together <span class="points">(25 points)</span></h2>
+        <p><strong>Task:</strong> Create variables using all three types (string, number, boolean) and combine them in console.log messages.</p>
+        
+        <div class="type-hint">
+            <strong>💡 Remember:</strong> You can combine different types in console.log using the + operator
+        </div>
+        
+        <div class="answer-section">
+            <h3>Instructions for your code:</h3>
+            <p><strong>Create these variables with good names:</strong></p>
+            <ul>
+                <li>Your name (string type)</li>
+                <li>Your age (number type)</li>
+                <li>Whether you are happy today (boolean type)</li>
+            </ul>
+            <p><strong>Then create one console.log that prints all three, like:</strong><br>
+            <code>console.log('My name is ' + yourName + ', I am ' + yourAge + ' years old, and I am happy: ' + yourHappiness)</code></p>
+            
+            <p><strong>Create another set of variables:</strong></p>
+            <ul>
+                <li>A movie you like (string type)</li>
+                <li>Rating from 1-10 (number type)</li>
+                <li>Whether you would recommend it (boolean type)</li>
+            </ul>
+            <p><strong>Print these too in a nice message using console.log</strong></p>
+            <p><strong>Remember:</strong> Use descriptive variable names in camelCase!</p>
+            
+            <h3>Your Code:</h3>
+            <textarea class="code-textarea" id="q4_code" placeholder="// Write your TypeScript code here
+// Create 6 variables total and print them nicely!"></textarea>
+            
+            <h3>What you learned:</h3>
+            <p><strong>List the three data types we learned:</strong></p>
+            <p>1. <input type="text" class="answer-input" id="q4_type1" placeholder="First type" style="width: 200px;"></p>
+            <p>2. <input type="text" class="answer-input" id="q4_type2" placeholder="Second type" style="width: 200px;"></p>
+            <p>3. <input type="text" class="answer-input" id="q4_type3" placeholder="Third type" style="width: 200px;"></p>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>📋 Question 5: Variable Naming Practice <span class="points">(15 points)</span></h2>
+        <p><strong>Task:</strong> Practice good variable naming, just like we learned in class.</p>
+        
+        <div class="type-hint">
+            <strong>💡 Remember:</strong> Variable names should make sense! Don't start with numbers. Use camelCase.
+        </div>
+        
+        <div class="answer-section">
+            <h3>Instructions for your code:</h3>
+            <p><strong>Fix these bad variable names to be good ones:</strong></p>
+            <ul>
+                <li><code>let a: string = 'Toyota'</code> → What should <code>a</code> be called?</li>
+                <li><code>let 2name: string = 'John'</code> → Fix the naming rule problem</li>
+                <li><code>let x: number = 25</code> → Make it descriptive</li>
+                <li><code>let thing: boolean = true</code> → Make it meaningful</li>
+            </ul>
+            
+            <p><strong>Then create 3 NEW variables with GOOD names for:</strong></p>
+            <ul>
+                <li>Your favorite sport (string)</li>
+                <li>Number of siblings you have (number)</li>
+                <li>Whether you like chocolate (boolean)</li>
+            </ul>
+            <p><strong>Remember:</strong> Use camelCase and make names descriptive!</p>
+            
+            <h3>Your Code:</h3>
+            <textarea class="code-textarea" id="q5_code" placeholder="// Fix the bad variable names and create your own good ones
+// Write your TypeScript code here"></textarea>
+            
+            <h3>Why is good naming important?</h3>
+            <textarea class="answer-textarea" id="q5_explanation" placeholder="Explain why variable names should be clear and descriptive..."></textarea>
+        </div>
+    </div>
+
+    <div class="question-box">
+        <h2>🌟 Bonus Question: Creative Challenge <span class="points">(10 points)</span></h2>
+        <p><strong>Task:</strong> Create your own story using all three data types!</p>
+        
+        <div class="answer-section">
+            <h3>Instructions for your story:</h3>
+            <p><strong>Create a short story about yourself using:</strong></p>
+            <ul>
+                <li>At least 3 string variables (names, places, things)</li>
+                <li>At least 2 number variables (ages, amounts, scores)</li>
+                <li>At least 2 boolean variables (true/false facts)</li>
+            </ul>
+            <p><strong>Then use console.log to tell your story!</strong></p>
+            <p><strong>Example start:</strong><br>
+            <code>let myName: string = 'Alex'</code><br>
+            <code>let myAge: number = 20</code><br>
+            <code>let lovesMusic: boolean = true</code><br>
+            <code>console.log(myName + ' is ' + myAge + ' years old and loves music: ' + lovesMusic)</code></p>
+            <p><strong>Remember:</strong> Use creative, descriptive variable names and have fun!</p>
+            
+            <h3>Your Code:</h3>
+            <textarea class="code-textarea" id="bonus_code" placeholder="// Create your story here - be creative and have fun!
+// Remember to use all three data types"></textarea>
+            
+            <h3>What's your story about?</h3>
+            <textarea class="answer-textarea" id="bonus_explanation" placeholder="Tell us what story you created and why you chose those variables..."></textarea>
+        </div>
+    </div>
+
+    <div class="checklist">
+        <h2>✅ Submission Checklist</h2>
+        <p>Before submitting, check that you have:</p>
+        <ul>
+            <li><input type="checkbox"> Created string variables with proper type annotations (let name: string = 'value')</li>
+            <li><input type="checkbox"> Created number variables without quotes (let age: number = 25)</li>
+            <li><input type="checkbox"> Created boolean variables with true/false (let isHappy: boolean = true)</li>
+            <li><input type="checkbox"> Used console.log to print your variables</li>
+            <li><input type="checkbox"> Combined different types in console.log using + operator</li>
+            <li><input type="checkbox"> Used good variable names that make sense</li>
+            <li><input type="checkbox"> Answered the questions about type differences</li>
+            <li><input type="checkbox"> Attempted the bonus question (optional but fun!)</li>
+        </ul>
+    </div>
+
+    <div class="save-buttons">
+        <h3>💾 Save Your Progress</h3>
+        <button class="btn btn-primary" onclick="saveProgress()">💾 Save Progress to Browser</button>
+        <button class="btn btn-primary" onclick="exportToPDF()">📄 Export to PDF</button>
+        <p style="margin-top: 10px; font-size: 14px; color: #666;">Your work is automatically saved as you type. Use "Save Progress" to manually save, and "Export to PDF" for final submission.</p>
+    </div>
+
+    <div class="submission-info">
+        <h2>📤 How to Submit</h2>
+        <p><strong>Fill out your answers in this HTML file, export to PDF, and send the PDF file to Salih Aydin</strong></p>
+        <p style="font-size: 14px; color: #666; margin-top: 10px;">💡 Tip: Use the "Export to PDF" button above to generate your submission file.</p>
+    </div>
+
+    <div class="help-section">
+        <h2>🆘 Need Help?</h2>
+        
+        <h3>String Variables:</h3>
+        <div style="background-color: #f8f9fa; padding: 10px; border-radius: 4px; margin: 10px 0;">
+let myName: string = 'John';        // Single quotes<br>
+let myCity: string = "New York";    // Double quotes<br>
+console.log('Hello ' + myName);     // Prints: Hello John
+        </div>
+
+        <h3>Number Variables:</h3>
+        <div style="background-color: #f8f9fa; padding: 10px; border-radius: 4px; margin: 10px 0;">
+let myAge: number = 25;       // No quotes for numbers!<br>
+let score: number = 87.5;     // Decimals are allowed<br>
+console.log(2 + 2);           // Prints: 4<br>
+console.log('2' + '2');       // Prints: 22 (strings!)
+        </div>
+
+        <h3>Boolean Variables:</h3>
+        <div style="background-color: #f8f9fa; padding: 10px; border-radius: 4px; margin: 10px 0;">
+let isStudent: boolean = true;    // No quotes!<br>
+let isRaining: boolean = false;   // No quotes!<br>
+console.log('Student: ' + isStudent);  // Prints: Student: true
+        </div>
+
+        <h3>Good Variable Names:</h3>
+        <div style="background-color: #f8f9fa; padding: 10px; border-radius: 4px; margin: 10px 0;">
+❌ let a = 'Toyota';           // Bad: doesn't describe what it is<br>
+✅ let carBrand = 'Toyota';    // Good: clear and descriptive<br>
+❌ let 2names = 'John';        // Bad: can't start with number<br>
+✅ let firstName = 'John';     // Good: clear and follows rules
+        </div>
+        
+        <p><strong>Remember:</strong> Make your variable names clear so other people can understand your code!</p>
+    </div>
+
+    <div class="student-info">
+        <p><strong>Student Name:</strong> <input type="text" class="answer-input" id="student_name" placeholder="Enter your full name"></p>
+        <p><strong>Date:</strong> <input type="date" class="answer-input" id="student_date"></p>
+    </div>
+
+    <!-- jsPDF library for direct PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script>
+        let autoSaveTimeout;
+        const AUTOSAVE_DELAY = 2000; // 2 seconds after typing stops
+        
+        // Auto-save functionality
+        function autoSave() {
+            try {
+                const formData = {};
+                const inputs = document.querySelectorAll('input, textarea, select');
+                
+                inputs.forEach(input => {
+                    if (input.id) {
+                        formData[input.id] = input.value;
+                    }
+                });
+                
+                localStorage.setItem('homework_day2_progress', JSON.stringify(formData));
+                
+                // Update status indicator
+                const status = document.getElementById('autoSaveStatus');
+                status.textContent = '✓ Auto-saved';
+                status.className = 'auto-save-status';
+                
+            } catch (error) {
+                console.error('Auto-save error:', error);
+                const status = document.getElementById('autoSaveStatus');
+                status.textContent = '⚠ Save error';
+                status.className = 'auto-save-status error';
+            }
+        }
+        
+        // Manual save progress
+        function saveProgress() {
+            const status = document.getElementById('autoSaveStatus');
+            status.textContent = '💾 Saving...';
+            status.className = 'auto-save-status saving';
+            
+            autoSave();
+            
+            setTimeout(() => {
+                alert('✅ Progress saved to browser successfully!');
+            }, 500);
+        }
+        
+        // Load saved progress
+        function loadProgress() {
+            try {
+                const savedData = localStorage.getItem('homework_day2_progress');
+                if (savedData) {
+                    const formData = JSON.parse(savedData);
+                    
+                    Object.keys(formData).forEach(id => {
+                        const element = document.getElementById(id);
+                        if (element) {
+                            element.value = formData[id];
+                        }
+                    });
+                    
+                    console.log('Progress loaded successfully');
+                }
+            } catch (error) {
+                console.error('Error loading progress:', error);
+            }
+        }
+        
+        // Set up auto-save listeners
+        function setupAutoSave() {
+            const inputs = document.querySelectorAll('input, textarea, select');
+            
+            inputs.forEach(input => {
+                ['input', 'change', 'keyup'].forEach(eventType => {
+                    input.addEventListener(eventType, () => {
+                        clearTimeout(autoSaveTimeout);
+                        
+                        // Show saving status
+                        const status = document.getElementById('autoSaveStatus');
+                        status.textContent = '💾 Typing...';
+                        status.className = 'auto-save-status saving';
+                        
+                        // Auto-save after delay
+                        autoSaveTimeout = setTimeout(autoSave, AUTOSAVE_DELAY);
+                    });
+                });
+            });
+        }
+        
+        // Export to PDF function - direct download
+        async function exportToPDF() {
+            try {
+                // Hide export buttons temporarily
+                const saveButtons = document.querySelectorAll('.save-buttons');
+                saveButtons.forEach(button => button.style.display = 'none');
+                
+                // Get student name for filename
+                const studentName = document.getElementById('student_name').value || 'Student';
+                const cleanName = studentName.replace(/[^a-zA-Z0-9]/g, '_');
+                const filename = `Day2_Homework_${cleanName}.pdf`;
+                
+                // Create PDF using html2canvas + jsPDF
+                const element = document.body;
+                const canvas = await html2canvas(element, {
+                    scale: 1.5,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff'
+                });
+                
+                const imgData = canvas.toDataURL('image/png');
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                
+                const imgWidth = 210; // A4 width in mm
+                const pageHeight = 295; // A4 height in mm
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                let heightLeft = imgHeight;
+                
+                let position = 0;
+                
+                // Add first page
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+                
+                // Add additional pages if needed
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+                
+                // Download the PDF
+                pdf.save(filename);
+                
+                // Show buttons again
+                saveButtons.forEach(button => button.style.display = 'block');
+                
+                alert('✅ PDF exported successfully! Check your Downloads folder.');
+                
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('❌ Error generating PDF. Please try again.');
+                
+                // Show buttons again even if error
+                const saveButtons = document.querySelectorAll('.save-buttons');
+                saveButtons.forEach(button => button.style.display = 'block');
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current date
+            document.getElementById('student_date').value = new Date().toISOString().split('T')[0];
+            
+            // Load saved progress
+            loadProgress();
+            
+            // Setup auto-save
+            setupAutoSave();
+            
+            // Initial save status
+            setTimeout(() => {
+                const status = document.getElementById('autoSaveStatus');
+                status.textContent = '✓ Ready to save';
+            }, 1000);
+        });
+    </script>
+    
+    </div> <!-- End content-wrapper -->
+</body>
+</html>
+
