@@ -1,0 +1,3 @@
+class GitBranchesPractise { 
+    git ='practise'
+}
