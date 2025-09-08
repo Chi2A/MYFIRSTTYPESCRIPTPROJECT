@@ -399,7 +399,7 @@ class LinkedInNetworkPage {
   }
 }
 let linkedIn = new LinkedInNetworkPage(); 
-//test commmit
+
 console.log("Home page title is ", linkedIn.expectedHomepageTitle);
 console.log("Max connection per day ", linkedIn.maximumConnectionRequestsPerDay);
 console.log(linkedIn.minimumProfileCompletionPercentageForVisibility);
